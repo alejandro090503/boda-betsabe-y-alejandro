@@ -1579,8 +1579,8 @@ var prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var wheelTL = gsap.timeline({
       scrollTrigger:{
         trigger:'.wheel-stage', start:'top bottom', end:'bottom top', scrub:1.2,
-        onUpdate:function(){
-          var v = ScrollTrigger.getVelocity();
+        onUpdate:function(self){
+          var v = self.getVelocity();
           if(Math.abs(v) > 20) spawnWheelSparks(v);
         }
       }
